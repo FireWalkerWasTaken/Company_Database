@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-import timing
-
 # Global variables
 member_name = ""
 member_position = ""
@@ -85,7 +83,6 @@ def add_daily_task():
         daily_tasks.setdefault(member_position, {}).setdefault(member_name, []).append(task)
         task_entry.delete(0, tk.END)
         messagebox.showinfo("Task Added", "Daily task added successfully!")
-
     else:
         messagebox.showwarning("No Selection", "Please select an employee to add a daily task.")
 
@@ -109,15 +106,6 @@ member_position_var = tk.StringVar(window)
 member_position_var.set(positions[0])
 position_dropdown = tk.OptionMenu(input_frame, member_position_var, *positions)
 position_dropdown.grid(row=1, column=1, padx=5, pady=5)
-
-member_qualification_label = tk.Label(input_frame, text="qualification:")
-member_position_label.grid(row=2, column=0, padx=5, pady=5)
-positions = ["12th", "under-grad", "upper grad", "P.H.D", "Diploma", "matric pass"]
-member_qualification_var = tk.StringVar(window)
-member_qualification_var.set(positions[0])
-qualification_dropdown = tk.OptionMenu(input_frame, member_qualification_var, *positions)
-qualification_dropdown.grid(row=3, column=1, padx=5, pady=5)
-
 
 job_vacancy_label = tk.Label(input_frame, text="Job Vacancy:")
 job_vacancy_label.grid(row=2, column=0, padx=5, pady=5)
